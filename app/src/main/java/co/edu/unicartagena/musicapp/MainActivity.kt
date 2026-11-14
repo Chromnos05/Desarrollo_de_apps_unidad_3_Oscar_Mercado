@@ -1,13 +1,10 @@
 package co.edu.unicartagena.musicapp
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.fragment.app.FragmentActivity
+import co.edu.unicartagena.musicapp.ui.navegacion.MusicAppNavegacion
 import co.edu.unicartagena.musicapp.ui.theme.MusicAppTheme
 
 /**
@@ -19,9 +16,12 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MusicAppTheme {
-                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text("MusicApp")
-                }
+                MusicAppNavegacion(
+                    contadorAgitado = 0,
+                    pedirHuella = {
+                        Toast.makeText(this, "La huella se habilita en la siguiente versión", Toast.LENGTH_SHORT).show()
+                    },
+                )
             }
         }
     }
