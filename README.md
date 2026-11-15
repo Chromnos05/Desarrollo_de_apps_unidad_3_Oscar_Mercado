@@ -10,7 +10,7 @@ Aplicación nativa **Android** para el **Ejercicio N° 20 – Canciones**, escri
 | Actividad | Unidad 3 – Android Studio (Kotlin) con persistencia en API REST y sensores |
 | API (backend en la nube) | https://musicapp-api-ten.vercel.app/api/health · [código](https://github.com/Chromnos05/Desarrollo_de_apps_unidad_2_Oscar_Mercado) |
 | APK | [`apk/MusicApp.apk`](apk/MusicApp.apk) · también en la release [apk-latest](https://github.com/Chromnos05/Desarrollo_de_apps_unidad_3_Oscar_Mercado/releases/tag/apk-latest) |
-| Video explicativo | _Pendiente_ |
+| Video explicativo | [youtu.be/qjtNvuxPuTU](https://youtu.be/qjtNvuxPuTU) |
 
 ---
 
