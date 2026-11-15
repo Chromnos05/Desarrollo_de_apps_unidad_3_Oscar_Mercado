@@ -110,3 +110,15 @@ git push origin main
 ## 6. Tecnologías
 
 Kotlin 2.1 · Jetpack Compose (Material 3) · Navigation Compose · ViewModel · Retrofit + Gson + OkHttp · AndroidX Biometric · SensorManager (acelerómetro) · Coroutines · JUnit · GitHub Actions. Backend: Spring Boot + Supabase + Vercel (unidad 2).
+
+## 7. Incidencias resueltas
+
+### Recuperación de contraseña: el correo no se enviaba (15/11/2026)
+
+**Síntoma.** En la pantalla *¿Olvidaste tu contraseña?* la app mostraba *"No se pudo enviar el correo. Intenta más tarde."* y el código nunca llegaba. El login, el CRUD, los reportes y los sensores funcionaban con normalidad.
+
+**Causa.** La app no tenía ningún error: solo reenvía la solicitud a la API REST de la unidad 2 (`POST /api/auth/recuperar`), y es la API la que envía el correo por SMTP con Gmail. La API respondía `503` porque Gmail rechazaba sus credenciales (`535 5.7.8 Username and Password not accepted`): la contraseña de aplicación configurada en la variable de entorno `MAIL_PASSWORD` de Vercel no era válida.
+
+**Solución.** Se generó una nueva contraseña de aplicación de Google, se actualizó `MAIL_PASSWORD` en Vercel y se volvió a desplegar la API. Se verificó que la API responde `200` y que el código llega al correo. La app no necesitó cambios ni un APK nuevo.
+
+El diagnóstico completo (pasos, commits y cómo detectarlo si se repite) está en el [README de la API, sección 9](https://github.com/Chromnos05/Desarrollo_de_apps_unidad_2_Oscar_Mercado#9-incidencias-resueltas).
